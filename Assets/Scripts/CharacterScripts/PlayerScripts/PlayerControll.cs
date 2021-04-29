@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerControll : MonoBehaviour
 {
+    #region  SerializeFields data
+
     [SerializeField] private float _speedPl;
     [SerializeField] public int _hpPl = 100;
     [SerializeField] public int _bulletsPl = 30;
@@ -26,6 +28,9 @@ public class PlayerControll : MonoBehaviour
     [SerializeField] private Transform _plBulStartPos;
     [SerializeField] private Rigidbody _rbPl;
     [SerializeField] private Animator _animPl;
+
+    #endregion
+
     private AudioSource _audioSource;
     //[SerializeField] private GameObject _playerGO;
     //[SerializeField] private float _speedPlVel;
@@ -63,11 +68,6 @@ public class PlayerControll : MonoBehaviour
         _dirPl.x = Input.GetAxis("Horizontal");
         _dirPl.z = Input.GetAxis("Vertical");
 
-        if (Input.GetKey(KeyCode.E))
-        {
-            up();
-        }
-
         if (Input.GetKey(KeyCode.Space))// исп.GetKey вместо GetKeyDown,
             // чтобы от быстрого нажатия прыгал ниже, чем если кнопку заажать
         {
@@ -75,14 +75,14 @@ public class PlayerControll : MonoBehaviour
         }
 
         #region Animation Jump
-        if (onGround)
-        {
-            _animPl.SetBool("Jump", false);
-        }
-        else
-        {
-            _animPl.SetBool("Jump", true);
-        }
+        //if (onGround)
+        //{
+        //    _animPl.SetBool("Jump", false);
+        //}
+        //else
+        //{
+        //    _animPl.SetBool("Jump", true);
+        //}
         #endregion
 
         #region Attacks methods
@@ -100,8 +100,8 @@ public class PlayerControll : MonoBehaviour
         }
 
         #endregion
-
     }
+
     private void FixedUpdate()
     {
          MovePlayer();
@@ -197,23 +197,6 @@ public class PlayerControll : MonoBehaviour
         isAlive = false;
         gameObject.SetActive(false);
         // Destroy(gameObject);
-    }
-
-    private void CheckGround()
-    {
-        //private void OnTriggerExit(Collider other)
-        //{
-        //    if (other.gameObject.CompareTag("Ground"))
-        //    {
-        //        onGround = false;
-        //        print("onGround false");
-        //    }
-        //}
-    }
-
-    private void up()
-    {
-        _rbPl.AddForce( 0,_jumpForce * .05f, 0, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider col)
