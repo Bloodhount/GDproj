@@ -7,19 +7,45 @@ public class UnityWindow : EditorWindow
     public Color myColor;
     public MeshRenderer GO;
 
+    public Material newMterial;
+
+    private Rect AreaRect = new Rect (10, 60, 200, 30);
+
+    private Transform MainCam;
+
     [MenuItem(" one / two /  generator prefabs ")]
 
     public static void ShowWindow()
     {      
-        GetWindow (typeof(UnityEditor.PackageManager.UI.Window), true, "Test window");
-        //GetWindow (typeof ( Window ) , true, "Test window");
+        //GetWindow (typeof(UnityEditor.PackageManager.UI.Window), true, "Test window");
+
+        GetWindow (typeof ( UnityWindow ) , false, "Test window");
     }
 
     void OnGUI()
     {
+        GO = EditorGUILayout.ObjectField("Mesh object", GO, typeof(MeshRenderer),true) as MeshRenderer;
+        newMterial = EditorGUILayout.ObjectField("newMterial object", newMterial, typeof(Material),true) as Material;
+
+        if (GO)
+        {
+            myColor = RGBSlider(new Rect(10, 60, 200, 30), myColor);
+            GO.sharedMaterial.color = myColor;
+        }
+        else
+        {
+            if (GUI.Button(new Rect(10, 100, 200, 30), "create window"))
+            {
+                MainCam = Camera.main.transform;
+                GameObject tmp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                MeshRenderer GORenderer = tmp.GetComponent<MeshRenderer>();
+                GORenderer.sharedMaterial = newMterial;
+                tmp.transform.position = new Vector3(MainCam.position.x - 15.0f, MainCam.position.y - 40.0f, MainCam.position.z);
+                GO = GORenderer;
+            }
+        }
        // mySlider = LebelSlider(new Rect(10, 10, 200, 30), mySlider, 100.0f, "My Slider");
-        myColor = RGBSlider(new Rect(10, 60, 200, 30), myColor);
-        GO.material.color = myColor;
+
     }
 
     float LebelSlider(Rect screenRect, float sliderValue, float sliderValueMax, string lebelText)
