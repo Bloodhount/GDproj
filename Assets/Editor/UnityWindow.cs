@@ -29,7 +29,7 @@ public class UnityWindow : EditorWindow
 
         if (GO)
         {
-            myColor = RGBSlider(new Rect(10, 60, 200, 30), myColor);
+            myColor = RGBSlider(new Rect(AreaRect.x + 1, AreaRect.y + 60, 200, 30), myColor);            //(10, 60, 200, 30), myColor);
             GO.sharedMaterial.color = myColor;
         }
         else
@@ -44,8 +44,6 @@ public class UnityWindow : EditorWindow
                 GO = GORenderer;
             }
         }
-       // mySlider = LebelSlider(new Rect(10, 10, 200, 30), mySlider, 100.0f, "My Slider");
-
     }
 
     float LebelSlider(Rect screenRect, float sliderValue, float sliderValueMax, string lebelText)
