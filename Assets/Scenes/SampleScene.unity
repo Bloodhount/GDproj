@@ -6785,6 +6785,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510260489}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &511925836 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4366835675894046631, guid: 172f2ca0197857343a74c79f85bbaefe, type: 3}
+  m_PrefabInstance: {fileID: 2003518093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512575193
 GameObject:
   m_ObjectHideFlags: 0
@@ -9617,6 +9622,7 @@ GameObject:
   - component: {fileID: 705507996}
   - component: {fileID: 705507997}
   - component: {fileID: 705507998}
+  - component: {fileID: 705507999}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -9719,7 +9725,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e793bf4227d79742a57d887ecf7076b, type: 3}
   m_Name: 
@@ -9746,6 +9752,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d4a058f0484744eb13edfa3ca59cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &705507999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06194fcae613cfb47b6f03f896984897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySlider: 0
+  my2Slider: 
+  my3Slider: 1
+  myColor: {r: 0, g: 0, b: 0, a: 0}
+  GO: {fileID: 511925836}
 --- !u!1 &708726782
 GameObject:
   m_ObjectHideFlags: 0
@@ -43207,6 +43230,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 116501789541924786, guid: 172f2ca0197857343a74c79f85bbaefe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366835675894046631, guid: 172f2ca0197857343a74c79f85bbaefe, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4366835675894046631, guid: 172f2ca0197857343a74c79f85bbaefe, type: 3}

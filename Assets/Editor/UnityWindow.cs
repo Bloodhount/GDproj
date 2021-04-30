@@ -1,18 +1,23 @@
-using System;
+using UnityEditor;
+//using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
-public class myAdvancedGUI : MonoBehaviour
+public class UnityWindow : EditorWindow
 {
-    [SerializeField] [Header("tune var")] [Range(0, 100)] [Tooltip("some info")] private float mySlider = 1.0f;
-    [SerializeField] [TextArea(3, 5)] private string my2Slider;
-    [SerializeField] private int my3Slider = 1;
-
     public Color myColor;
     public MeshRenderer GO;
 
+    [MenuItem(" one / two /  generator prefabs ")]
+
+    public static void ShowWindow()
+    {      
+        GetWindow (typeof(UnityEditor.PackageManager.UI.Window), true, "Test window");
+        //GetWindow (typeof ( Window ) , true, "Test window");
+    }
+
     void OnGUI()
     {
-        mySlider = LebelSlider(new Rect(10, 10, 200, 30), mySlider, 100.0f, "My Slider");
+       // mySlider = LebelSlider(new Rect(10, 10, 200, 30), mySlider, 100.0f, "My Slider");
         myColor = RGBSlider(new Rect(10, 60, 200, 30), myColor);
         GO.material.color = myColor;
     }
@@ -23,7 +28,7 @@ public class myAdvancedGUI : MonoBehaviour
 
         GUI.Label(lebelRect, lebelText);
 
-        Rect sliderRect = new Rect(screenRect.x + screenRect.width/2, screenRect.y, screenRect.width/2, screenRect.height);
+        Rect sliderRect = new Rect(screenRect.x + screenRect.width / 2, screenRect.y, screenRect.width / 2, screenRect.height);
         sliderValue = GUI.HorizontalSlider(sliderRect, sliderValue, 0.0f, sliderValueMax);
 
         return sliderValue;
