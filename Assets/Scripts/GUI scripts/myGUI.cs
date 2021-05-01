@@ -68,10 +68,10 @@ public class myGUI : MonoBehaviour
 
         _fps = FpsCount.ToString();
          
-        GUI.BeginGroup(new Rect(Screen.width / 2, Screen.width * 0.01f, _boxLabelWidth, _boxLabelHeight));
-        GUI.Label (new Rect(0, 0, _boxLabelWidth, _boxLabelHeight), "Hello");
-        GUI.Label (new Rect(0, 25, _boxLabelWidth, _boxLabelHeight), "World");
-        GUI.Label (new Rect(0, 50, _boxLabelWidth, _boxLabelHeight), _fps);
+        GUI.BeginGroup(new Rect(Screen.width * 0.4f, Screen.width * 0.01f, _boxLabelWidth, _boxLabelHeight));
+        GUI.Label (new Rect(80, 10, _boxLabelWidth, _boxLabelHeight), "FPS");
+        GUI.Label (new Rect(180, 10, _boxLabelWidth, _boxLabelHeight), "counter");
+        GUI.Label (new Rect(180, 60, _boxLabelWidth, _boxLabelHeight), _fps);
         GUI.EndGroup();
     }
 #endif
