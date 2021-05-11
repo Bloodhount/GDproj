@@ -23,6 +23,7 @@ public class PlayerAmountBombs : MonoBehaviour
     void Update()
     {
         CurrentAmountBombs = Player._bombsPl;
-        AmountBomb.text = CurrentAmountBombs.ToString() + " bombs ";
+        //AmountBomb.text = CurrentAmountBombs.ToString() + " bombs ";
+        AmountBomb.text = "bombs: " + CurrentAmountBombs.ToString() ;
     }
 }

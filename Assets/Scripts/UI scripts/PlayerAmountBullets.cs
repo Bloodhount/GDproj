@@ -25,7 +25,7 @@ public class PlayerAmountBullets : MonoBehaviour
     void Update()
     {
         CurrentAmmoBullets = Player._bulletsPl;
-        AmountAmmoText.text = CurrentAmmoBullets.ToString() + " bulletts";
+        AmountAmmoText.text = "bulletts :" + CurrentAmmoBullets.ToString();
         //AmountBullettsImg.fillAmount = CurrentAmmoBullets / MaxAmmoBullets;
         //AmountAmmoText.text = CurrentAmmoBullets.ToString();
     }
