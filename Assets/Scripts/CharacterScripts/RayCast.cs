@@ -5,7 +5,7 @@ using UnityEngine;
 public class RayCast : MonoBehaviour
 {
     [SerializeField] LayerMask _mask;
-    [SerializeField] int _range;
+    [SerializeField] int _range = 5;
 
     private GameObject _owner;
 
@@ -19,7 +19,7 @@ public class RayCast : MonoBehaviour
         Ray ray = new Ray();
         ray.origin = _owner.transform.position;
         ray.direction = transform.forward;
-        Debug.DrawRay (_owner.transform.position, transform.forward * 10f, Color.red);
+        Debug.DrawRay (_owner.transform.position, transform.forward * _range, Color.red);
 
         //RaycastHit r = Physics.Raycast(transform.position, Vector3.forward, _range, _mask);
         //if (r)
